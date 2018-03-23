@@ -39,7 +39,7 @@ describe('Game', () => {
     expect(game.score).to.equal(10);
   });
 
-  it('should shift all bells downwrd on contact', () => {
+  it('should shift all bells downward on contact', () => {
     game.bells = [new Bells(10, 10, 10, 10)];
 
     game.scrolling();
@@ -53,17 +53,31 @@ describe('Game', () => {
     expect(game.runGameLoop).to.equal(true);
   });
 
-  it.skip('should set the y value for rabbit back to 500 after the new level starts', () => {
+  it('should set the y value for rabbit back to 300 after the new level starts', () => {
     game.rabbit.y = -10;
 
     game.startNextLevel();
 
-    expect(game.rabbit.y).to.equal(500);
+    expect(game.rabbit.y).to.equal(300);
   }); 
 
-    // bellFreaquency
-    // it.'should genertate a random bell on the screen', () => {
-    // }
+  it('should raise the variable of Frequency by 50 when startNextLevel is invoked', () => {
+    expect(game.frequency).to.equal(25);
 
-    // generateRandomBells, how many, where they land
+    game.startNextLevel();
+
+    expect(game.frequency).to.equal(75);
+  });
+
+  it('should generate an array of bells when the generateRandomBells method is invoked', () => {
+    expect(game.bells).to.be.an('array').that.is.empty;
+
+    game.generateRandomBells();
+
+    expect(game.bells).to.be.an('array').that.has.lengthOf(1);
+  });
+
+  it.skip('should generate a random number between 1 and the current frequency when bellFrequency is invoked', () => {
+
+  })
 });
