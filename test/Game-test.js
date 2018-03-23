@@ -69,15 +69,11 @@ describe('Game', () => {
     expect(game.frequency).to.equal(75);
   });
 
-  it('should generate an array of bells when the generateRandomBells method is invoked', () => {
+  it('should push an object into the bells when the generateRandomBells method is invoked', () => {
     expect(game.bells).to.be.an('array').that.is.empty;
 
     game.generateRandomBells();
 
     expect(game.bells).to.be.an('array').that.has.lengthOf(1);
   });
-
-  it.skip('should generate a random number between 1 and the current frequency when bellFrequency is invoked', () => {
-
-  })
 });
